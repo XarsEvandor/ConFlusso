@@ -1,0 +1,17 @@
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\bin\Release\MidiSequencer.exe.config
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\bin\Release\MidiSequencer.exe
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\bin\Release\MidiSequencer.pdb
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\bin\Release\Midi.dll
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\bin\Release\MidiUI.dll
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\bin\Release\MidiUI.pdb
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\bin\Release\MidiUI.xml
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\bin\Release\Midi.pdb
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\bin\Release\Midi.xml
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\obj\Release\MidiSequencer.csproj.AssemblyReference.cache
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\obj\Release\MidiSequencer.Main.resources
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\obj\Release\MidiSequencer.Properties.Resources.resources
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\obj\Release\MidiSequencer.csproj.GenerateResource.cache
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\obj\Release\MidiSequencer.csproj.CoreCompileInputs.cache
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\obj\Release\MidiSequencer.csproj.CopyComplete
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\obj\Release\MidiSequencer.exe
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiSequencer\obj\Release\MidiSequencer.pdb

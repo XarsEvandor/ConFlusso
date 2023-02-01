@@ -1,0 +1,705 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MidiUI</name>
+    </assembly>
+    <members>
+        <member name="T:M.Knob">
+            <summary>
+            Represents a knob control
+            </summary>
+        </member>
+        <member name="M:M.Knob.#ctor">
+            <summary>
+            Creates a new instance of the control
+            </summary>
+        </member>
+        <member name="P:M.Knob.Value">
+            <summary>
+            Indicates the value of the control
+            </summary>
+        </member>
+        <member name="E:M.Knob.ValueChanged">
+            <summary>
+            Raised with the value of Value changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnValueChanged(System.EventArgs)">
+            <summary>
+            Called when the value of Value changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="P:M.Knob.LargeChange">
+            <summary>
+            Indicates the amount the control increments when the large modifiers are used
+            </summary>
+        </member>
+        <member name="E:M.Knob.LargeChangeChanged">
+            <summary>
+            Raised with the value of LargeChange changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnLargeChangeChanged(System.EventArgs)">
+            <summary>
+            Called when the value of LargeChange changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="P:M.Knob.Minimum">
+            <summary>
+            Indicates the minimum value for the control
+            </summary>
+        </member>
+        <member name="E:M.Knob.MinimumChanged">
+            <summary>
+            Raised with the value of Minimum changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnMinimumChanged(System.EventArgs)">
+            <summary>
+            Called when the value of Minimum changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="P:M.Knob.Maximum">
+            <summary>
+            Indicates the maximum value for the control
+            </summary>
+        </member>
+        <member name="E:M.Knob.MaximumChanged">
+            <summary>
+            Raised with the value of Maximum changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnMaximumChanged(System.EventArgs)">
+            <summary>
+            Called when the value of Maximum changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="P:M.Knob.BorderColor">
+            <summary>
+            Indicates the border color
+            </summary>
+        </member>
+        <member name="E:M.Knob.BorderColorChanged">
+            <summary>
+            Raised when the value of BorderColor changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnBorderColorChanged(System.EventArgs)">
+            <summary>
+            Called when the value of BorderColor changes
+            </summary>
+            <param name="args">The event args (not used)</param>
+        </member>
+        <member name="P:M.Knob.KnobColor">
+            <summary>
+            Indicates the knob color
+            </summary>
+        </member>
+        <member name="E:M.Knob.KnobColorChanged">
+            <summary>
+            Raised when the value of KnobColor changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnKnobColorChanged(System.EventArgs)">
+            <summary>
+            Called when the value of KnobColor changes
+            </summary>
+            <param name="args">The event args (not used)</param>
+        </member>
+        <member name="P:M.Knob.PointerColor">
+            <summary>
+            Indicates the pointer color
+            </summary>
+        </member>
+        <member name="E:M.Knob.PointerColorChanged">
+            <summary>
+            Raised when the value of PointerColor changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnPointerColorChanged(System.EventArgs)">
+            <summary>
+            Called when the value of PointerColor changes
+            </summary>
+            <param name="args">The event args (not used)</param>
+        </member>
+        <member name="P:M.Knob.PointerWidth">
+            <summary>
+            Indicates the pointer width of the control
+            </summary>
+        </member>
+        <member name="E:M.Knob.PointerWidthChanged">
+            <summary>
+            Raised with the value of PointerWidth changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnPointerWidthChanged(System.EventArgs)">
+            <summary>
+            Called when the value of PointerWidth changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="P:M.Knob.BorderWidth">
+            <summary>
+            Indicates the border width of the control
+            </summary>
+        </member>
+        <member name="E:M.Knob.BorderWidthChanged">
+            <summary>
+            Raised with the value of BorderWidth changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnBorderWidthChanged(System.EventArgs)">
+            <summary>
+            Called when the value of BorderWidth changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="P:M.Knob.PointerStartCap">
+            <summary>
+            Indicates the pointer start line cap of the control
+            </summary>
+        </member>
+        <member name="E:M.Knob.PointerStartCapChanged">
+            <summary>
+            Raised with the value of PointerStartCap changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnPointerStartCapChanged(System.EventArgs)">
+            <summary>
+            Called when the value of PointerStartCap changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="P:M.Knob.PointerEndCap">
+            <summary>
+            Indicates the pointer end line cap of the control
+            </summary>
+        </member>
+        <member name="E:M.Knob.PointerEndCapChanged">
+            <summary>
+            Raised with the value of PointerEndCap changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnPointerEndCapChanged(System.EventArgs)">
+            <summary>
+            Called when the value of PointerEndCap changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="P:M.Knob.MinimumAngle">
+            <summary>
+            Indicates the minimum value for the control
+            </summary>
+        </member>
+        <member name="E:M.Knob.MinimumAngleChanged">
+            <summary>
+            Raised with the value of MinimumAngle changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnMinimumAngleChanged(System.EventArgs)">
+            <summary>
+            Called when the value of MinimumAngle changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="P:M.Knob.MaximumAngle">
+            <summary>
+            Indicates the maximum angle for the control
+            </summary>
+        </member>
+        <member name="E:M.Knob.MaximumAngleChanged">
+            <summary>
+            Raised with the value of MaximumAngle changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnMaximumAngleChanged(System.EventArgs)">
+            <summary>
+            Called when the value of MaximumAngle changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="P:M.Knob.HasTicks">
+            <summary>
+            Indicates whether or not the control displays tick marks
+            </summary>
+        </member>
+        <member name="E:M.Knob.HasTicksChanged">
+            <summary>
+            Raised with the value of HasTicks changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnHasTicksChanged(System.EventArgs)">
+            <summary>
+            Called when the value of HasTicks changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="P:M.Knob.TickHeight">
+            <summary>
+            Indicates the height of the tick marks
+            </summary>
+        </member>
+        <member name="E:M.Knob.TickHeightChanged">
+            <summary>
+            Raised with the value of TickHeight changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnTickHeightChanged(System.EventArgs)">
+            <summary>
+            Called when the value of TickHeight changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="P:M.Knob.TickWidth">
+            <summary>
+            Indicates the width of the tick marks
+            </summary>
+        </member>
+        <member name="E:M.Knob.TickWidthChanged">
+            <summary>
+            Raised with the value of TickWidth changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnTickWidthChanged(System.EventArgs)">
+            <summary>
+            Called when the value of TickWidth changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="P:M.Knob.TickColor">
+            <summary>
+            Indicates the color of the tick marks
+            </summary>
+        </member>
+        <member name="E:M.Knob.TickColorChanged">
+            <summary>
+            Raised with the value of TickColor changes
+            </summary>
+        </member>
+        <member name="M:M.Knob.OnTickColorChanged(System.EventArgs)">
+            <summary>
+            Called when the value of TickColor changes
+            </summary>
+            <param name="args">The event args to use</param>
+        </member>
+        <member name="M:M.Knob.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Called when the control needs to be painted
+            </summary>
+            <param name="args">The event args</param>
+        </member>
+        <member name="M:M.Knob.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Called when a mouse button is pressed
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:M.Knob.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Called when a mouse button is released
+            </summary>
+            <param name="args">The event args</param>
+        </member>
+        <member name="M:M.Knob.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Called when a mouse button is moved
+            </summary>
+            <param name="args">The event args</param>
+        </member>
+        <member name="M:M.Knob.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Called when the mouse wheel is scrolled
+            </summary>
+            <param name="args">The event args</param>
+        </member>
+        <member name="M:M.Knob.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Called when a key is pressed
+            </summary>
+            <param name="args">The event args</param>
+        </member>
+        <member name="M:M.Knob.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>
+            Called when a command key is pressed
+            </summary>
+            <param name="msg">The message</param>
+            <param name="keyData">The command key(s)</param>
+            <returns>True if handled, otherwise false</returns>
+        </member>
+        <member name="M:M.Knob.OnResize(System.EventArgs)">
+            <summary>
+            Called when the control is resized
+            </summary>
+            <param name="args">The event arguments</param>
+        </member>
+        <member name="M:M.Knob.OnSizeChanged(System.EventArgs)">
+            <summary>
+            Called when the control's size changes
+            </summary>
+            <param name="args">The event args</param>
+        </member>
+        <member name="M:M.Knob.OnEnter(System.EventArgs)">
+            <summary>
+            Called when the control receives focus
+            </summary>
+            <param name="args">The event args</param>
+        </member>
+        <member name="M:M.Knob.OnLeave(System.EventArgs)">
+            <summary>
+            Called when the control loses focus
+            </summary>
+            <param name="args">The event args</param>
+        </member>
+        <member name="T:M.MidiVisualizer">
+            <summary>
+            Represents a MIDI visualizer
+            </summary>
+        </member>
+        <member name="M:M.MidiVisualizer.#ctor">
+            <summary>
+            Creates a new instance
+            </summary>
+        </member>
+        <member name="P:M.MidiVisualizer.ChannelColors">
+            <summary>
+            Indicates the color to use for drawing each channel
+            </summary>
+        </member>
+        <member name="E:M.MidiVisualizer.ChannelColorsChanged">
+            <summary>
+            Raised when the value of ChannelColors changes
+            </summary>
+        </member>
+        <member name="M:M.MidiVisualizer.OnChannelColorsChanged(System.EventArgs)">
+            <summary>
+            Called when the value of ChannelColors changes
+            </summary>
+            <param name="args">The event args</param>
+        </member>
+        <member name="P:M.MidiVisualizer.Sequence">
+            <summary>
+            Indicates the MIDI sequence to render
+            </summary>
+        </member>
+        <member name="E:M.MidiVisualizer.SequenceChanged">
+            <summary>
+            Raised when the value of Sequence changes
+            </summary>
+        </member>
+        <member name="M:M.MidiVisualizer.OnSequenceChanged(System.EventArgs)">
+            <summary>
+            Called when the value of Sequence changes
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="P:M.MidiVisualizer.CursorColor">
+            <summary>
+            Indicates the color of the cursor
+            </summary>
+        </member>
+        <member name="E:M.MidiVisualizer.CursorColorChanged">
+            <summary>
+            Raised when the value of CursorColor changes
+            </summary>
+        </member>
+        <member name="M:M.MidiVisualizer.OnCursorColorChanged(System.EventArgs)">
+            <summary>
+            Called when the value of CursorColor changes
+            </summary>
+            <param name="args">The event args</param>
+        </member>
+        <member name="P:M.MidiVisualizer.CursorPosition">
+            <summary>
+            Indicates the position of the cursor in MIDI ticks
+            </summary>
+        </member>
+        <member name="E:M.MidiVisualizer.CursorPositionChanged">
+            <summary>
+            Raised when the value of CursorPosition changes
+            </summary>
+        </member>
+        <member name="M:M.MidiVisualizer.OnCursorPositionChanged(System.EventArgs)">
+            <summary>
+            Called when the value of CursorPosition changes
+            </summary>
+            <param name="args">The event args</param>
+        </member>
+        <member name="P:M.MidiVisualizer.ShowCursor">
+            <summary>
+            Indicates whether or not to show the cursor
+            </summary>
+        </member>
+        <member name="E:M.MidiVisualizer.ShowCursorChanged">
+            <summary>
+            Raised when the value of ShowCursor changes
+            </summary>
+        </member>
+        <member name="M:M.MidiVisualizer.OnShowCursorChanged(System.EventArgs)">
+            <summary>
+            Called when the value of ShowCursor changes
+            </summary>
+            <param name="args">The event args</param>
+        </member>
+        <member name="M:M.MidiVisualizer.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Paints the control
+            </summary>
+            <param name="args">The event arguments</param>
+        </member>
+        <member name="M:M.MidiVisualizer.OnResize(System.EventArgs)">
+            <summary>
+            Called when the control is resized
+            </summary>
+            <param name="args">The event arguments</param>
+        </member>
+        <member name="T:M.PianoBoxHotKeyDefaults">
+            <summary>
+            Indicates the sets of default keys to use for piano key hot keys
+            </summary>
+        </member>
+        <member name="F:M.PianoBoxHotKeyDefaults.TopRows">
+            <summary>
+            Use the top two rows of the keyboard
+            </summary>
+        </member>
+        <member name="F:M.PianoBoxHotKeyDefaults.BottomRows">
+            <summary>
+            Use the bottom two rows of the keyboard
+            </summary>
+        </member>
+        <member name="T:M.PianoBox">
+            <summary>
+            Represents an interactive piano keyboard
+            </summary>
+        </member>
+        <member name="M:M.PianoBox.#ctor">
+            <summary>
+            Creates  a new instance
+            </summary>
+        </member>
+        <member name="P:M.PianoBox.Octaves">
+            <summary>
+            Indicates the number of octaves to be represented
+            </summary>
+        </member>
+        <member name="E:M.PianoBox.OctavesChanged">
+            <summary>
+            Raised when the value of Octaves changes
+            </summary>
+        </member>
+        <member name="M:M.PianoBox.OnOctavesChanged(System.EventArgs)">
+            <summary>
+            Called when the value of Octaves changes
+            </summary>
+            <param name="args">The event args (not used)</param>
+        </member>
+        <member name="P:M.PianoBox.Orientation">
+            <summary>
+            Indicates the orientation of the control
+            </summary>
+        </member>
+        <member name="E:M.PianoBox.OrientationChanged">
+            <summary>
+            Raised when the value of Orientation changes
+            </summary>
+        </member>
+        <member name="M:M.PianoBox.OnOrientationChanged(System.EventArgs)">
+            <summary>
+            Called when the value of Orientation changes
+            </summary>
+            <param name="args">The event args (not used)</param>
+        </member>
+        <member name="P:M.PianoBox.NoteHighlightColor">
+            <summary>
+            Indicates the note highlight color
+            </summary>
+        </member>
+        <member name="E:M.PianoBox.NoteOnColorChanged">
+            <summary>
+            Raised when the value of NoteOnColor changes
+            </summary>
+        </member>
+        <member name="M:M.PianoBox.OnNoteOnColorChanged(System.EventArgs)">
+            <summary>
+            Called when the value of NoteOnColor changes
+            </summary>
+            <param name="args">The event args (not used)</param>
+        </member>
+        <member name="P:M.PianoBox.WhiteKeyColor">
+            <summary>
+            Indicates the white key color
+            </summary>
+        </member>
+        <member name="E:M.PianoBox.WhiteKeyColorChanged">
+            <summary>
+            Raised when the value of WhiteKeyColor changes
+            </summary>
+        </member>
+        <member name="M:M.PianoBox.OnWhiteKeyColorChanged(System.EventArgs)">
+            <summary>
+            Called when the value of WhiteKeyColor changes
+            </summary>
+            <param name="args">The event args (not used)</param>
+        </member>
+        <member name="P:M.PianoBox.BlackKeyColor">
+            <summary>
+            Indicates the black key color
+            </summary>
+        </member>
+        <member name="E:M.PianoBox.BlackKeyColorChanged">
+            <summary>
+            Raised when the value of BlackKeyColor changes
+            </summary>
+        </member>
+        <member name="M:M.PianoBox.OnBlackKeyColorChanged(System.EventArgs)">
+            <summary>
+            Called when the value of BlackKeyColor changes
+            </summary>
+            <param name="args">The event args (not used)</param>
+        </member>
+        <member name="P:M.PianoBox.BorderColor">
+            <summary>
+            Indicates the border color
+            </summary>
+        </member>
+        <member name="E:M.PianoBox.BorderColorChanged">
+            <summary>
+            Raised when the value of BorderColor changes
+            </summary>
+        </member>
+        <member name="M:M.PianoBox.OnBorderColorChanged(System.EventArgs)">
+            <summary>
+            Called when the value of BorderColor changes
+            </summary>
+            <param name="args">The event args (not used)</param>
+        </member>
+        <member name="P:M.PianoBox.HotKeys">
+            <summary>
+            Indicates the hotkey controls for the keyboard
+            </summary>
+        </member>
+        <member name="M:M.PianoBox.MapHotKeyDefaultsToOctave(M.PianoBoxHotKeyDefaults,System.Int32)">
+            <summary>
+            Copies a set of hotkey defaults to the specified octave
+            </summary>
+            <param name="defaultSet">A <see cref="T:M.PianoBoxHotKeyDefaults"/> value that indicates which set of defaults to use</param>
+            <param name="octave">The octave to map the default set tp</param>
+        </member>
+        <member name="E:M.PianoBox.HotKeysChanged">
+            <summary>
+            Raised when the value of HotKeys changes
+            </summary>
+        </member>
+        <member name="M:M.PianoBox.OnHotKeysChanged(System.EventArgs)">
+            <summary>
+            Called when the value of HotKeys changes
+            </summary>
+            <param name="args">The <see cref="T:System.EventArgs"/> to use</param>
+        </member>
+        <member name="M:M.PianoBox.GetKey(System.Int32)">
+            <summary>
+            Retrieves the state of the specified key
+            </summary>
+            <param name="key">The key id</param>
+            <returns>True if the key is pressed, otherwise false</returns>
+        </member>
+        <member name="M:M.PianoBox.SetKey(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Sets the state of a key
+            </summary>
+            <param name="key">They key id</param>
+            <param name="value">True if the key should be pressed, otherwise false</param>
+            <param name="suppressEvent">True if no event should be raised from this action, otherwise false</param>
+        </member>
+        <member name="E:M.PianoBox.PianoKeyDown">
+            <summary>
+            Raised when a piano key is struck
+            </summary>
+        </member>
+        <member name="M:M.PianoBox.OnPianoKeyDown(M.PianoKeyEventArgs)">
+            <summary>
+            Called when a piano key is struck
+            </summary>
+            <param name="args">The <see cref="T:M.PianoKeyEventArgs"/> to use</param>
+        </member>
+        <member name="E:M.PianoBox.PianoKeyUp">
+            <summary>
+            Raised when a piano key is released
+            </summary>
+        </member>
+        <member name="M:M.PianoBox.OnPianoKeyUp(M.PianoKeyEventArgs)">
+            <summary>
+            Called when a piano key is released
+            </summary>
+            <param name="args">The <see cref="T:M.PianoKeyEventArgs"/> to use</param>
+        </member>
+        <member name="P:M.PianoBox.Keys">
+            <summary>
+            Indicates the current state of each of the keys
+            </summary>
+        </member>
+        <member name="M:M.PianoBox.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Called when the control is painted
+            </summary>
+            <param name="args">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> to use</param>
+        </member>
+        <member name="M:M.PianoBox.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Called when a key is pressed
+            </summary>
+            <param name="e">The event args</param>
+        </member>
+        <member name="M:M.PianoBox.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Called when a key is released
+            </summary>
+            <param name="e">The event args</param>
+        </member>
+        <member name="M:M.PianoBox.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Called when a mouse button is pressed
+            </summary>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> to use</param>
+        </member>
+        <member name="M:M.PianoBox.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Called when the mouse is moved
+            </summary>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> to use</param>
+        </member>
+        <member name="M:M.PianoBox.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Called when a mouse button is released
+            </summary>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> to use</param>
+        </member>
+        <member name="T:M.PianoKeyEventArgs">
+            <summary>
+            Represents the event arguments for a piano key related event
+            </summary>
+        </member>
+        <member name="P:M.PianoKeyEventArgs.Key">
+            <summary>
+            The target key
+            </summary>
+        </member>
+        <member name="M:M.PianoKeyEventArgs.#ctor(System.Int32)">
+            <summary>
+            Creates a new instance
+            </summary>
+            <param name="key">The target key</param>
+        </member>
+        <member name="T:M.PianoKeyEventHandler">
+            <summary>
+            Indicates the handler for a piano key related event
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+    </members>
+</doc>

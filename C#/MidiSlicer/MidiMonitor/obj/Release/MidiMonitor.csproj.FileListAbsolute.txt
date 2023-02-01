@@ -1,0 +1,14 @@
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\bin\Release\MidiMonitor.exe.config
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\bin\Release\MidiMonitor.exe
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\bin\Release\MidiMonitor.pdb
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\bin\Release\Midi.dll
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\bin\Release\Midi.pdb
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\bin\Release\Midi.xml
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\obj\Release\MidiMonitor.csproj.AssemblyReference.cache
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\obj\Release\MidiMonitor.Main.resources
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\obj\Release\MidiMonitor.Properties.Resources.resources
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\obj\Release\MidiMonitor.csproj.GenerateResource.cache
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\obj\Release\MidiMonitor.csproj.CoreCompileInputs.cache
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\obj\Release\MidiMonitor.csproj.CopyComplete
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\obj\Release\MidiMonitor.exe
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiMonitor\obj\Release\MidiMonitor.pdb

@@ -1,0 +1,7 @@
+C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\BLE_Data_Receiver\obj\Debug\net6.0-windows\BLE_Data_Receiver.csproj.AssemblyReference.cache
+C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\BLE_Data_Receiver\obj\Debug\net6.0-windows\BLE_Data_Receiver.Receiver.resources
+C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\BLE_Data_Receiver\obj\Debug\net6.0-windows\BLE_Data_Receiver.csproj.GenerateResource.cache
+C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\BLE_Data_Receiver\obj\Debug\net6.0-windows\BLE_Data_Receiver.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\BLE_Data_Receiver\obj\Debug\net6.0-windows\BLE_Data_Receiver.AssemblyInfoInputs.cache
+C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\BLE_Data_Receiver\obj\Debug\net6.0-windows\BLE_Data_Receiver.AssemblyInfo.cs
+C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\BLE_Data_Receiver\obj\Debug\net6.0-windows\BLE_Data_Receiver.csproj.CoreCompileInputs.cache

@@ -1,0 +1,5 @@
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiKeys\obj\Release\MidiKeys.csproj.AssemblyReference.cache
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiKeys\obj\Release\MidiKeys.Main.resources
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiKeys\obj\Release\MidiKeys.Properties.Resources.resources
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiKeys\obj\Release\MidiKeys.csproj.GenerateResource.cache
+D:\GDrive\Thesis\George\Code\MidiSlicer\MidiKeys\obj\Release\MidiKeys.csproj.CoreCompileInputs.cache

@@ -1,0 +1,16 @@
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\bin\Release\FourByFour.exe.config
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\bin\Release\FourByFour.exe
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\bin\Release\FourByFour.pdb
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\bin\Release\Midi.dll
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\bin\Release\Midi.pdb
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\bin\Release\Midi.xml
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\obj\Release\FourByFour.csproj.AssemblyReference.cache
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\obj\Release\FourByFour.BeatControl.resources
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\obj\Release\FourByFour.StepControl.resources
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\obj\Release\FourByFour.Main.resources
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\obj\Release\FourByFour.Properties.Resources.resources
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\obj\Release\FourByFour.csproj.GenerateResource.cache
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\obj\Release\FourByFour.csproj.CoreCompileInputs.cache
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\obj\Release\FourByFour.csproj.CopyComplete
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\obj\Release\FourByFour.exe
+D:\GDrive\Thesis\George\Code\MidiSlicer\FourByFour\obj\Release\FourByFour.pdb

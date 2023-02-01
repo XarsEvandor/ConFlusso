@@ -1,0 +1,6 @@
+D:\GDrive\Thesis\George\Code\MidiSlicer\Midi\bin\Release\Midi.xml
+D:\GDrive\Thesis\George\Code\MidiSlicer\Midi\bin\Release\Midi.dll
+D:\GDrive\Thesis\George\Code\MidiSlicer\Midi\bin\Release\Midi.pdb
+D:\GDrive\Thesis\George\Code\MidiSlicer\Midi\obj\Release\Midi.csproj.CoreCompileInputs.cache
+D:\GDrive\Thesis\George\Code\MidiSlicer\Midi\obj\Release\Midi.dll
+D:\GDrive\Thesis\George\Code\MidiSlicer\Midi\obj\Release\Midi.pdb
