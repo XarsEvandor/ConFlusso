@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rAY8PwSNVKrkytqANd9xrGdzvnLr9szBu8uSJn9XHeOfT+2uU2jjx0wsoqx3XQ80FF/H6VYMsS6W1iaDNRAGtA==",
+  "dgSpecHash": "HNszaIkEQcHHfwqEMtjuefu5bxiGwxbU1BP4kykopj3fSggs0/QWzYYtcw4nA0JFpE+7RCRx/20DfKq2aTIJUw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\C#\\Multiproject\\BLE_Data_Receiver\\BLE_Data_Receiver.csproj",
+  "projectFilePath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\ConFlusso\\C#\\Multiproject\\BLE_Data_Receiver\\BLE_Data_Receiver.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

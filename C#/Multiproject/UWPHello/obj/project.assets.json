@@ -5903,7 +5903,7 @@
       ]
     },
     "Microsoft.NETCore.UniversalWindowsPlatform/6.2.14": {
-      "sha512": "20T91+/vQhL8c//GFU9qkNnys2BVdzAr9smULuP4p9csXwYjuoqxwAjNxLH0FvApGdB3s0sGhHkSeLg3IQBdMw==",
+      "sha512": "7Mi4cS8JQ7gqm+W+SRCq13c2Rr0yZTuczC9EbV6gRigE2ZhQalnLHyat0ZshT5HDMSkFDxTyjwZymUgFuv3+eg==",
       "type": "package",
       "path": "microsoft.netcore.universalwindowsplatform/6.2.14",
       "files": [
@@ -9008,7 +9008,7 @@
       ]
     },
     "runtime.win10-x64.Microsoft.NETCore.UniversalWindowsPlatform/6.2.14": {
-      "sha512": "snth4i/ok+LqSSqK5tLVFSbe8RDzIvfJabMXMPoYI+NQCi91mR+7tsTHk3gNEojuZT0i4g1EaFrIwqaW9bmEYA==",
+      "sha512": "SPmQotZQ5ty+UkHMm76k/0DJpZ663qwXvLjVw/LrNmaIQHa+g+6TjKNAyR0ondKnwqu5oT79RJ2Tk8A0JQqBPQ==",
       "type": "package",
       "path": "runtime.win10-x64.microsoft.netcore.universalwindowsplatform/6.2.14",
       "files": [
@@ -10067,7 +10067,7 @@
       ]
     },
     "runtime.win10-x86.Microsoft.NETCore.UniversalWindowsPlatform/6.2.14": {
-      "sha512": "GaJmbZkhVAMCNvDSshqXzpTxWPKhENV+Q6A/Z7/lYeywczdCSlExJo+1aJ8/eh9bwKhxRvIj3OZH4JsQsYpRaA==",
+      "sha512": "twbdvWFcy0wRd/jiZWeiS6Edui76XwmRLHXLJ3uFpBsimu7XOTLJBMycG11MxdcAjFMa3LnPUkTgiI63wM1b+w==",
       "type": "package",
       "path": "runtime.win10-x86.microsoft.netcore.universalwindowsplatform/6.2.14",
       "files": [
@@ -10262,11 +10262,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\C#\\Multiproject\\UWPHello\\UWPHello.csproj",
+      "projectUniqueName": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\ConFlusso\\C#\\Multiproject\\UWPHello\\UWPHello.csproj",
       "projectName": "UWPHello",
-      "projectPath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\C#\\Multiproject\\UWPHello\\UWPHello.csproj",
+      "projectPath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\ConFlusso\\C#\\Multiproject\\UWPHello\\UWPHello.csproj",
       "packagesPath": "C:\\Users\\giorg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\C#\\Multiproject\\UWPHello\\obj\\",
+      "outputPath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\ConFlusso\\C#\\Multiproject\\UWPHello\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

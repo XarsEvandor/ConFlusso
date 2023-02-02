@@ -14,4 +14,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BLE_Data_Receiver
-build_property.ProjectDir = C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\BLE_Data_Receiver\
+build_property.ProjectDir = C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\BLE_Data_Receiver\

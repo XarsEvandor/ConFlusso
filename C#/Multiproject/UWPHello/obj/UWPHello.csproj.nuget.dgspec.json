@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\C#\\Multiproject\\UWPHello\\UWPHello.csproj": {}
+    "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\ConFlusso\\C#\\Multiproject\\UWPHello\\UWPHello.csproj": {}
   },
   "projects": {
-    "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\C#\\Multiproject\\UWPHello\\UWPHello.csproj": {
+    "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\ConFlusso\\C#\\Multiproject\\UWPHello\\UWPHello.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\C#\\Multiproject\\UWPHello\\UWPHello.csproj",
+        "projectUniqueName": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\ConFlusso\\C#\\Multiproject\\UWPHello\\UWPHello.csproj",
         "projectName": "UWPHello",
-        "projectPath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\C#\\Multiproject\\UWPHello\\UWPHello.csproj",
+        "projectPath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\ConFlusso\\C#\\Multiproject\\UWPHello\\UWPHello.csproj",
         "packagesPath": "C:\\Users\\giorg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\C#\\Multiproject\\UWPHello\\obj\\",
+        "outputPath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\ConFlusso\\C#\\Multiproject\\UWPHello\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [

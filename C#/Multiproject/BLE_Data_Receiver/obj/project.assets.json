@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\C#\\Multiproject\\BLE_Data_Receiver\\BLE_Data_Receiver.csproj",
+      "projectUniqueName": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\ConFlusso\\C#\\Multiproject\\BLE_Data_Receiver\\BLE_Data_Receiver.csproj",
       "projectName": "BLE_Data_Receiver",
-      "projectPath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\C#\\Multiproject\\BLE_Data_Receiver\\BLE_Data_Receiver.csproj",
+      "projectPath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\ConFlusso\\C#\\Multiproject\\BLE_Data_Receiver\\BLE_Data_Receiver.csproj",
       "packagesPath": "C:\\Users\\giorg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\C#\\Multiproject\\BLE_Data_Receiver\\obj\\",
+      "outputPath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\ConFlusso\\C#\\Multiproject\\BLE_Data_Receiver\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
