@@ -4,8 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using UWPHello;
 using Windows.Devices.Bluetooth.GenericAttributeProfile;
 using Windows.Storage.Streams;
+using Windows.Devices.Enumeration;
+using Windows.Devices.Bluetooth;
+using System.Diagnostics;
+using Windows.UI.Notifications;
 
 namespace BLE_Data_Receiver
 {
@@ -39,12 +44,15 @@ namespace BLE_Data_Receiver
         }
         private String __serviceGUID;
         private String __characteristicGUID;
+        private String __deviceName;
+        private DeviceInformation __deviceInfo;
 
-
-        public CSensorAttribute(string p_sServiceGUID, string p_sCharacteristicGUID)
+        public CSensorAttribute(string p_sServiceGUID, string p_sCharacteristicGUID, string p_sDeviceName, DeviceInformation p_oDeviceInfo)
         {
             this.__serviceGUID = p_sServiceGUID;
             this.__characteristicGUID = p_sCharacteristicGUID;
+            this.__deviceName = p_sDeviceName;
+            this.__deviceInfo = p_oDeviceInfo;
         }
 
 
@@ -52,8 +60,21 @@ namespace BLE_Data_Receiver
         {
             try
             {
-                var device = await Windows.Devices.Enumeration.DeviceInformation.FindAllAsync(Windows.Devices.Bluetooth.BluetoothLEDevice.GetDeviceSelectorFromDeviceName("Arduino Accelerometer")).AsTask();
-                var bleDevice = await Windows.Devices.Bluetooth.BluetoothLEDevice.FromIdAsync(device.First().Id);
+                /*
+                var oDeviceSelector = BluetoothLEDevice.GetDeviceSelectorFromDeviceName(__deviceName);
+                var oDevices = await DeviceInformation.FindAllAsync(oDeviceSelector).AsTask();
+                
+                foreach (DeviceInformation di in oDevices)
+                {
+                    BluetoothLEDevice oBLEDevice = await BluetoothLEDevice.FromIdAsync(di.Id);
+
+                    Debug.WriteLine(oBLEDevice.Name);
+                }
+                var bleDevice = await BluetoothLEDevice.FromIdAsync(oDevices.First().Id);
+                */
+
+                var bleDevice = await BluetoothLEDevice.FromIdAsync(this.__deviceInfo.Id);
+                Debug.WriteLine("Completed connection ...");
 
                 // Get service and characteristics by UUID
                 var gattAsyncServiceResult = await bleDevice.GetGattServicesForUuidAsync(new Guid(this.__serviceGUID));
