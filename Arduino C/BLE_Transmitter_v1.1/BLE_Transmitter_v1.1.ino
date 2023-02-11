@@ -50,6 +50,7 @@ void setup() {
 
   // Set BLE device name and advertised service
   BLE.setLocalName("Arduino Accelerometer");
+  BLE.setDeviceName("Arduino Accelerometer");
   BLE.setAdvertisedService(customService);
 
   // Add characteristics to service
