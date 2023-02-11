@@ -56,7 +56,7 @@
     </p>
 
 ## C#:
-* <details><summary>UWP Hello</summary>
+* <details><summary>UWP Hello (Abandoned)</summary>
     <p>
         Class SensorAttribute:
   This class is used to receive data from a BLE (Bluetooth Low Energy) sensor and store the readings.
@@ -79,4 +79,47 @@
     - Initialize(self): Initializes the connection to the BLE sensor, gets the `__service` and `__characteristic` objects, sets up a listener for characteristic value changes, and starts receiving notifications from the sensor.
     - ValueChanged(self, sender, args): A callback method that gets called when the characteristic value changes. It reads the value from the `args` and converts it to a float, then stores the value in the `__values` list.
 
+    </p>
+
+* <details><summary>BLE_DotNet</summary>
+    <p>
+    
+    # BLE_DotNet 
+
+    ## Dependencies
+    - .NET framework
+    - Windows Bluetooth API
+
+    ## Attributes
+
+    ### `private string _deviceName`
+    Stores the name of the device.
+
+    ### `private Guid _serviceUuid`
+    Stores the unique identifier for the service offered by the device.
+
+    ## Properties
+
+    ### `DeviceName`
+    Gets or sets the name of the device.
+
+    ### `ServiceUuid`
+    Gets or sets the unique identifier for the service offered by the device.
+
+    ## Methods
+
+    ### `Connect()`
+    Establishes a connection to the device.
+
+    ### `Disconnect()`
+    Terminates the connection to the device.
+
+    ### `WriteData(byte[] data)`
+    Writes data to the device.
+
+    ### `ReadData()`
+    Reads data from the device.
+
+    ## Summary
+    The BLE_DotNet class allows for communication with a Bluetooth Low Energy (BLE) device using the .NET framework and Windows Bluetooth API. It provides methods for connecting to, disconnecting from, writing data to, and reading data from a BLE device. The device name and unique service identifier are stored as properties and can be accessed and modified.
     </p>
