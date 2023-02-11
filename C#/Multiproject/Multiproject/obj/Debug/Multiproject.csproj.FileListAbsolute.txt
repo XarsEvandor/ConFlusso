@@ -3,3 +3,8 @@ C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\Multiprojec
 C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\Multiproject\obj\Debug\MyApp.Properties.Resources.resources
 C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\Multiproject\obj\Debug\Multiproject.csproj.GenerateResource.cache
 C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\Multiproject\obj\Debug\Multiproject.csproj.CoreCompileInputs.cache
+C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\Multiproject\obj\Debug\Multiproject.csproj.AssemblyReference.cache
+C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\Multiproject\obj\Debug\Multiproject.csproj.SuggestedBindingRedirects.cache
+C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\Multiproject\obj\Debug\MyApp.Properties.Resources.resources
+C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\Multiproject\obj\Debug\Multiproject.csproj.GenerateResource.cache
+C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\Multiproject\obj\Debug\Multiproject.csproj.CoreCompileInputs.cache

@@ -5,3 +5,10 @@ C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\Midi\obj\De
 C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\Midi\obj\Debug\Midi.csproj.CoreCompileInputs.cache
 C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\Midi\obj\Debug\Midi.dll
 C:\Users\giorg\Desktop\Programing\Thesis\Development\C#\Multiproject\Midi\obj\Debug\Midi.pdb
+C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\Midi\bin\Debug\Midi.xml
+C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\Midi\bin\Debug\Midi.dll
+C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\Midi\bin\Debug\Midi.pdb
+C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\Midi\obj\Debug\Midi.csproj.AssemblyReference.cache
+C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\Midi\obj\Debug\Midi.csproj.CoreCompileInputs.cache
+C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\Midi\obj\Debug\Midi.dll
+C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\Midi\obj\Debug\Midi.pdb

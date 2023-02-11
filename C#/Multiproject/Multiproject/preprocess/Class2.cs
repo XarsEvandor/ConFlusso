@@ -9,10 +9,6 @@ namespace MyApp.preprocess
 {
     class Class2
     {
-        public Class2
-        {
-            String tempVar = "temp";
-            
-        }
+        
     }
 }
