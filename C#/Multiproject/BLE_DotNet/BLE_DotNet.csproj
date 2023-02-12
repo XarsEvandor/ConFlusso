@@ -48,6 +48,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSensor.cs" />
+    <Compile Include="CSensorCharacteristic.cs" />
+    <Compile Include="CSensorService.cs" />
+    <Compile Include="Program_Backup.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

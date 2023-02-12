@@ -47,60 +47,16 @@ namespace BLE_DotNet
                 if(oDeviceInfo == null)
                 {
                     Thread.Sleep(200);
-                    //if (fEnumerationComplete)
-                    //{
-                    //    Console.WriteLine("Enumeration Complete");
-                    //    deviceWatcher.Stop();
-                    //    Thread.Sleep(200);
-                    //    deviceWatcher.Start();
-                    //    fEnumerationComplete = false;
-                    //}
                 }
                 else
                 {
-                    Console.WriteLine("Press any key to pair with " + oDeviceInfo.Name + ".");
-                    Console.ReadKey();
                     BluetoothLEDevice bluetoothLeDevice = await BluetoothLEDevice.FromIdAsync(oDeviceInfo.Id);
                     Console.WriteLine("\nPairing...");
 
-                    GattDeviceServicesResult oServicesResult = await bluetoothLeDevice.GetGattServicesAsync();
-
-                    if (oServicesResult.Status == GattCommunicationStatus.Success)
-                    {
-                        Console.WriteLine("\nSuccessfuly paired with device.\n Displaying service UUIDs: \n");
-                        var services = oServicesResult.Services;
-                        foreach(var service in services)
-                        {
-                            Console.WriteLine(service.Uuid.ToString());
-
-                            if(service.Uuid.ToString("N").Substring(4,4) == p_sAccelUuid)
-                            {
-                                Console.WriteLine("\nFound Accelerometer Service.\n Displaying characteristics UUIDs: \n");
-                                GattCharacteristicsResult oCharacteristicsResult = await service.GetCharacteristicsAsync();
-
-                                if (oCharacteristicsResult.Status == GattCommunicationStatus.Success)
-                                {
-                                    var oCharacteristics = oCharacteristicsResult.Characteristics;
-                                    foreach (var characteristic in oCharacteristics)
-                                    {
-                                        Console.WriteLine(characteristic.Uuid.ToString());
-                                        GattCharacteristicProperties properties = characteristic.CharacteristicProperties;
-
-                                        if (properties.HasFlag(GattCharacteristicProperties.Notify) && characteristic.Uuid.ToString().Contains("2101"))
-                                        {
-                                            GattCommunicationStatus status = await characteristic.WriteClientCharacteristicConfigurationDescriptorAsync(
-                                                GattClientCharacteristicConfigurationDescriptorValue.Notify);
-                                            if (status == GattCommunicationStatus.Success)
-                                            {
-                                                characteristic.ValueChanged += Characteristic_ValueChanged;
-                                                // Server has been informed of clients interest.
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    CSensor oSensor = new CSensor(bluetoothLeDevice);
+                    await oSensor.SubscribeToServiceCharsNotifications(p_sAccelUuid);
+                    var values = oSensor.oService.dCharacteristicsUUIDs["1101"].Values;
+                    Console.WriteLine(values.Count);
 
                     Console.WriteLine("Press any key to exit");
                     Console.ReadKey();
@@ -110,15 +66,6 @@ namespace BLE_DotNet
             }
 
             deviceWatcher.Stop();
-        }
-
-        private static void Characteristic_ValueChanged(GattCharacteristic sender, GattValueChangedEventArgs args)
-        {
-            // An Indicate or Notify reported that the value has changed.
-            var reader = DataReader.FromBuffer(args.CharacteristicValue);
-            var value = reader.ReadByte();
-
-            Console.WriteLine($"{value}");
         }
 
         private static void DeviceWatcher_Stopped(DeviceWatcher sender, object args)
