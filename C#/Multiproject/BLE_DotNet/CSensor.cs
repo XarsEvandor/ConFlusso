@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.Devices.Bluetooth;
 using Windows.Devices.Bluetooth.GenericAttributeProfile;
@@ -32,7 +33,7 @@ namespace BLE_DotNet
 
         }
 
-        public async Task SubscribeToServiceCharsNotifications(string p_sServiceUUID)
+        public async Task SubscribeToServiceCharsNotifications(string p_sServiceUUID, List<string> p_lsCharacteristicsUUIDs)
         {
             GattDeviceServicesResult oServicesResult = await __Device.GetGattServicesAsync();
 
@@ -43,10 +44,10 @@ namespace BLE_DotNet
                 var services = oServicesResult.Services;
                 foreach (var service in services)
                 {
-                    if(service.Uuid.Equals(p_sServiceUUID)) 
+                    if(service.Uuid.ToString().Contains(p_sServiceUUID)) 
                     { 
                         oService = new CSensorService(service);
-                        await oService.SubscribeToCharNotifications();
+                        await oService.SubscribeToCharNotifications(p_lsCharacteristicsUUIDs);
                     }
                 }
             }

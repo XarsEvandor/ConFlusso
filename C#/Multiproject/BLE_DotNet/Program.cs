@@ -16,6 +16,9 @@ namespace BLE_DotNet
     {
         static DeviceInformation oDeviceInfo = null;
         private static string p_sAccelUuid = "1101";
+        private static List<string> p_lsCharacteristicsUUIDs = new List<string> { "2101", "2102", "2103", "2104", "2105", "2106"};
+        private static CSensor oSensor;
+
         //private static bool fEnumerationComplete = false;
 
         static async Task Main(string[] args)
@@ -53,19 +56,51 @@ namespace BLE_DotNet
                     BluetoothLEDevice bluetoothLeDevice = await BluetoothLEDevice.FromIdAsync(oDeviceInfo.Id);
                     Console.WriteLine("\nPairing...");
 
-                    CSensor oSensor = new CSensor(bluetoothLeDevice);
-                    await oSensor.SubscribeToServiceCharsNotifications(p_sAccelUuid);
-                    var values = oSensor.oService.dCharacteristicsUUIDs["1101"].Values;
-                    Console.WriteLine(values.Count);
+                    oSensor = new CSensor(bluetoothLeDevice);
+                    await oSensor.SubscribeToServiceCharsNotifications(p_sAccelUuid, p_lsCharacteristicsUUIDs);
 
-                    Console.WriteLine("Press any key to exit");
-                    Console.ReadKey();
-                    break;
+                    for (int i = 0; i < 1000; i++)
+                    {
+                        deviceWatcher.Stop();
+                        await Task.Delay(100);
+                        if (deviceWatcher.Status == DeviceWatcherStatus.Stopped)
+                        {
+                            break;
+                        }
+                    }
+                    List<int> valuesX;
+                    List<int> valuesY;
+                    List<int> valuesZ;
+
+                    while (true)
+                    {
+                        try
+                        {
+                            do
+                            {
+                                valuesX = oSensor.oService.dCharacteristicsUUIDs["2101"].tempValues;
+                                valuesY = oSensor.oService.dCharacteristicsUUIDs["2102"].tempValues;
+                                valuesZ = oSensor.oService.dCharacteristicsUUIDs["2103"].tempValues;
+
+                                for (int i = 0; i < valuesX.Count; i++)
+                                {
+                                    Console.WriteLine($"Accel X: {valuesX[i]} | Accel Y: {valuesY[i]} | Accel Z: {valuesZ[i]}\n");
+                                    Thread.Sleep(100);
+                                }
+                            }
+                            while (valuesX.Count < 400);
+                           
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Waiting for device data...");
+                            Thread.Sleep(500);
+                        }
+                    }
+                   
                 }
 
             }
-
-            deviceWatcher.Stop();
         }
 
         private static void DeviceWatcher_Stopped(DeviceWatcher sender, object args)

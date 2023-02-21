@@ -29,7 +29,7 @@ namespace BLE_DotNet
             }
         }
 
-        public async Task SubscribeToCharNotifications()
+        public async Task SubscribeToCharNotifications(List<string> p_lsCharacteristicsUUIDs)
         {
             Console.WriteLine($"\nFound Service: {__Service.Uuid}.\n");
             GattCharacteristicsResult oCharacteristicsResult = await __Service.GetCharacteristicsAsync();
@@ -40,9 +40,12 @@ namespace BLE_DotNet
                 
                 foreach (var characteristic in oCharacteristics)
                 {
-                    CSensorCharacteristic oSensorCharacteristic = new CSensorCharacteristic(characteristic);
-                    await oSensorCharacteristic.SubscribeToNotifications();
-                    dCharacteristicsUUIDs.Add(characteristic.Uuid.ToString(), oSensorCharacteristic);
+                    if (p_lsCharacteristicsUUIDs.Contains(characteristic.Uuid.ToString("N").Substring(4, 4))){
+                        CSensorCharacteristic oSensorCharacteristic = new CSensorCharacteristic(characteristic);
+                        await oSensorCharacteristic.SubscribeToNotifications();
+                        dCharacteristicsUUIDs.Add(characteristic.Uuid.ToString("N").Substring(4, 4), oSensorCharacteristic);
+                    }
+                    
                 }
             }
                     
