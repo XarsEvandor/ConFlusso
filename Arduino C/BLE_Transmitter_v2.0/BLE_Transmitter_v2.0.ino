@@ -1,5 +1,8 @@
 #include <ArduinoBLE.h>
 #include <Arduino_LSM9DS1.h>
+// #include <mbed.h>
+
+// mbed::Ticker counterTicker;
 
 // Constants for BLE characteristics
 const char* SERVICE_UUID = "1101";
@@ -14,11 +17,17 @@ int16_t gyroX, gyroY, gyroZ;
 float x, y, z;
 float l, m, n;
 
+int nTicks = 0;
+bool bIsReady = false;
+
+char accelData[20]; // Maximum length of the string
+char gyroData[20]; // Maximum length of the string
+
 // Create BLE service and characteristics for accelerometer and gyroscope data
 BLEService customService(SERVICE_UUID);
 
-BLECharacteristic customAccelChar(ACCEL_UUID, BLERead | BLENotify, 6);
-BLECharacteristic customGyroChar(GYRO_UUID, BLERead | BLENotify, 6);
+BLECharacteristic customAccelChar(ACCEL_UUID, BLERead | BLENotify, 20, true);
+BLECharacteristic customGyroChar(GYRO_UUID, BLERead | BLENotify, 20, true);
 
 void setup() {
   // Start the IMU
@@ -26,6 +35,7 @@ void setup() {
 
   // Start serial communication
   Serial.begin(9600);
+
   while (!Serial) {
     ;
   }
@@ -60,7 +70,10 @@ void setup() {
 
   // Start BLE advertising
   BLE.advertise();
+
+  // counterTicker.attach_us( ReadAndSend, 5000 ); // Call ISRcounter function every 100 us. 
 }
+
 
 void loop() {
   BLEDevice central = BLE.central();
@@ -70,40 +83,67 @@ void loop() {
     Serial.println(central.address());
     digitalWrite(LED_BUILTIN, HIGH);
 
+
+
     while (central.connected()) {
-      delay(200);
-      read_Accel();
+      bIsReady = true;
+        read_Accel();
 
-      char accelData[20]; // Maximum length of the string
 
-      // Combine accelerometer data into a single string
-      sprintf(accelData, "%d,%d,%d", x, y, z);
+        // Combine accelerometer data into a single string
+        // sprintf(accelData, "%3d,%3d,%3d", accelX, accelY, accelZ);
+        
+        accelData[0] = lowByte(accelX);
+        accelData[1] = highByte(accelX);
 
-      char gyroData[20]; // Maximum length of the string
+        accelData[2] = lowByte(accelY);
+        accelData[3] = highByte(accelY);
+        
+        accelData[4] = lowByte(accelZ);
+        accelData[5] = highByte(accelZ);
 
-      // Combine accelerometer data into a single string
-      sprintf(gyroData, "%d,%d,%d", x, y, z);
+        // Combine accelerometer data into a single string
+        // sprintf(gyroData, "%3d,%3d,%3d", gyroX, gyroY, gyroZ);
+      
+        accelData[6] = lowByte(gyroX);
+        accelData[7] = highByte(gyroX);
 
-      // Update characteristic values
-      customAccelChar.writeValue(accelData);
-      customGyroChar.writeValue(gyroData);
+        accelData[8] = lowByte(gyroY);
+        accelData[9] = highByte(gyroY);
 
-      // Print sensor data to serial monitor
-      Serial.print("Acceleration: X = ");
-      Serial.print(accelX);
-      Serial.print(" Y = ");
-      Serial.print(accelY);
-      Serial.print(" Z = ");
-      Serial.println(accelZ);
+        accelData[10] = lowByte(gyroZ);
+        accelData[11] = highByte(gyroZ);   
+        
 
-      Serial.print("Gyroscope: X = ");
-      Serial.print(gyroX);
-      Serial.print(" Y = ");
-      Serial.print(gyroY);
-      Serial.print(" Z = ");
-      Serial.println(gyroZ);
-      Serial.println("");
+      
+        // Update characteristic values
+        customAccelChar.writeValue(accelData);
+        // customGyroChar.writeValue(gyroData);
+
+        // ReadAndSend();
+
+      if (nTicks % 100 == 0)
+      {
+        // Print sensor data to serial monitor
+        Serial.print("Acceleration: X = ");
+        Serial.print(accelX);
+        Serial.print(" Y = ");
+        Serial.print(accelY);
+        Serial.print(" Z = ");
+        Serial.println(accelZ);
+
+        Serial.print("Gyroscope: X = ");
+        Serial.print(gyroX);
+        Serial.print(" Y = ");
+        Serial.print(gyroY);
+        Serial.print(" Z = ");
+        Serial.println(gyroZ);
+        Serial.println("");
+      }
+      nTicks++;
+      delay(2);
     }
+    bIsReady = false;
   }
 
   digitalWrite(LED_BUILTIN, LOW);
@@ -112,19 +152,46 @@ void loop() {
 
 }
 
+void ReadAndSend()
+{
+  if (bIsReady)
+  {
+    read_Accel();
+
+
+    // Combine accelerometer data into a single string
+    sprintf(accelData, "%3d,%3d,%3d", accelX, accelY, accelZ);
+
+    // Combine accelerometer data into a single string
+    sprintf(gyroData, "%3d,%3d,%3d", gyroX, gyroY, gyroZ);
+
+
+    // Update characteristic values
+    customAccelChar.writeValue(accelData);
+    customGyroChar.writeValue(gyroData);
+  }
+}
+
 void read_Accel(){
   if (IMU.accelerationAvailable()) {
     IMU.readAcceleration(x, y, z);
-    accelX = (1 + floor(x)) * 100;
-    accelY = (1 + floor(y)) * 100;
-    accelZ = (1 + floor(z)) * 100;
+    accelX = (int)x;
+    accelY = (int)y;
+    accelZ = (int)z;
+
+    //accelX = (1 + floor(x)) * 100;
+    //accelY = (1 + floor(y)) * 100;
+    //accelZ = (1 + floor(z)) * 100;
   }
 
   if(IMU.gyroscopeAvailable()){
     IMU.readGyroscope(l, m, n);
-    gyroX = (2000 + floor(l)) / 20;
-    gyroY = (2000 + floor(m)) / 20;
-    gyroZ = (2000 + floor(n)) / 20;
+    gyroX = (int)l;
+    gyroY = (int)m;
+    gyroZ = (int)n;
+    //gyroX = (2000 + floor(l)) / 20;
+    //gyroY = (2000 + floor(m)) / 20;
+    //gyroZ = (2000 + floor(n)) / 20;
   
   }
 }
