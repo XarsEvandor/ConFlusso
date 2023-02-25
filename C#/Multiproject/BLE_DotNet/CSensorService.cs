@@ -40,10 +40,15 @@ namespace BLE_DotNet
                 
                 foreach (var characteristic in oCharacteristics)
                 {
-                    if (p_lsCharacteristicsUUIDs.Contains(characteristic.Uuid.ToString("N").Substring(4, 4))){
-                        CSensorCharacteristic oSensorCharacteristic = new CSensorCharacteristic(characteristic);
-                        await oSensorCharacteristic.SubscribeToNotifications();
-                        dCharacteristicsUUIDs.Add(characteristic.Uuid.ToString("N").Substring(4, 4), oSensorCharacteristic);
+                    String sCharacteristicID = characteristic.Uuid.ToString("N").Substring(4, 4);
+                    if (p_lsCharacteristicsUUIDs.Contains(sCharacteristicID))
+                    {
+                        if (!dCharacteristicsUUIDs.ContainsKey(sCharacteristicID))
+                        {
+                            CSensorCharacteristic oSensorCharacteristic = new CSensorCharacteristic(characteristic);
+                            await oSensorCharacteristic.SubscribeToNotifications();
+                            dCharacteristicsUUIDs.Add(sCharacteristicID, oSensorCharacteristic);
+                        }
                     }
                     
                 }

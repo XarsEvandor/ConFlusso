@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Devices.Bluetooth.GenericAttributeProfile;
 using Windows.Storage.Streams;
@@ -65,10 +66,77 @@ namespace BLE_DotNet
 
         }
 
+        private Thread __thread;
+
         public CSensorCharacteristic(GattCharacteristic p_oCharacteristic)
         {
             this.__Characteristic = p_oCharacteristic;
+
+            //__thread = new Thread(ThreadRunOnce);
+            //__thread.Start();
         }
+
+
+        public async void ThreadRunOnce()
+        {
+
+            ////Console.WriteLine(characteristic.Uuid.ToString());
+            //GattCharacteristicProperties properties = __Characteristic.CharacteristicProperties;
+
+            //if (properties.HasFlag(GattCharacteristicProperties.Notify))
+            //{
+            //    GattCommunicationStatus status = await __Characteristic.WriteClientCharacteristicConfigurationDescriptorAsync(
+            //        GattClientCharacteristicConfigurationDescriptorValue.Notify);
+            //    if (status == GattCommunicationStatus.Success)
+            //    {
+            //        __Characteristic.ValueChanged += Characteristic_ValueChanged;
+            //        Console.WriteLine($"Subscribed to characteristic: {__Characteristic.Uuid}");
+            //        // Server has been informed of clients interest.
+            //    }
+            //}
+
+
+            // initialize status
+            GattCommunicationStatus status = GattCommunicationStatus.Unreachable;
+            var cccdValue = GattClientCharacteristicConfigurationDescriptorValue.None;
+            if (__Characteristic.CharacteristicProperties.HasFlag(GattCharacteristicProperties.Indicate))
+            {
+                cccdValue = GattClientCharacteristicConfigurationDescriptorValue.Indicate;
+            }
+            else if (__Characteristic.CharacteristicProperties.HasFlag(GattCharacteristicProperties.Notify))
+            {
+                cccdValue = GattClientCharacteristicConfigurationDescriptorValue.Notify;
+            }
+
+            try
+            {
+                // BT_Code: Must write the CCCD in order for server to send indications.
+                // We receive them in the ValueChanged event handler.
+                GattCommunicationStatus gattCommunicationStatus = await __Characteristic.WriteClientCharacteristicConfigurationDescriptorAsync(cccdValue);
+                status = gattCommunicationStatus;
+
+                if (status == GattCommunicationStatus.Success)
+                {
+                    __Characteristic.ValueChanged += Characteristic_ValueChanged;
+
+                    //rootPage.NotifyUser("Successfully subscribed for value changes", NotifyType.StatusMessage);
+                    Console.WriteLine($"Subscribed to characteristic: {__Characteristic.Uuid}");
+                }
+                else
+                {
+                    //rootPage.NotifyUser($"Error registering for value changes: {status}", NotifyType.ErrorMessage);
+                    Console.WriteLine($"Error registering for value changes: {status}");
+                }
+            }
+            catch (Exception ex)
+            {
+                // This usually happens when a device reports that it support indicate, but it actually doesn't.
+                //rootPage.NotifyUser(ex.Message, NotifyType.ErrorMessage);
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+
 
         public async Task SubscribeToNotifications()
         {
@@ -96,7 +164,6 @@ namespace BLE_DotNet
             {
                 cccdValue = GattClientCharacteristicConfigurationDescriptorValue.Indicate;
             }
-
             else if (__Characteristic.CharacteristicProperties.HasFlag(GattCharacteristicProperties.Notify))
             {
                 cccdValue = GattClientCharacteristicConfigurationDescriptorValue.Notify;
@@ -112,7 +179,7 @@ namespace BLE_DotNet
                 {
                     __Characteristic.ValueChanged += Characteristic_ValueChanged;
                     //rootPage.NotifyUser("Successfully subscribed for value changes", NotifyType.StatusMessage);
-                    Console.WriteLine("Successfully subscribed for value changes");
+                    Console.WriteLine($"Subscribed to characteristic: {__Characteristic.Uuid}");
                 }
                 else
                 {

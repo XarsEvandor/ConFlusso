@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.Devices.Bluetooth;
-using Windows.Devices.Bluetooth.GenericAttributeProfile;
 using Windows.Devices.Enumeration;
-using Windows.Storage.Streams;
 
 namespace BLE_DotNet
 {
@@ -18,6 +14,7 @@ namespace BLE_DotNet
         private static string p_sAccelUuid = "1101";
         private static List<string> p_lsCharacteristicsUUIDs = new List<string> { "2101", "2102", "2103", "2104", "2105", "2106"};
         private static CSensor oSensor;
+        private static CClientThread Client = null;
 
         //private static bool fEnumerationComplete = false;
 
@@ -127,10 +124,19 @@ namespace BLE_DotNet
 
         private static void DeviceWatcher_Added(DeviceWatcher sender, DeviceInformation args)
         {
-            Console.WriteLine("Device found: " + args.Name.ToString());
+            Console.WriteLine("Device added: " + args.Name.ToString());
             if (Regex.IsMatch(args.Name, "Arduino\\s+Accelerome", RegexOptions.IgnoreCase))
             {
+                
                 oDeviceInfo = args;
+                
+                //if (Client == null)
+                //{
+                //  Console.WriteLine("Arduino found: " + args.Name.ToString());
+                //   Client = new CClientThread(args, p_sAccelUuid, p_lsCharacteristicsUUIDs);
+                //   Client.Start();
+                //}
+
             }
 
         }

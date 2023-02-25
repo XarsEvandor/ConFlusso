@@ -9,7 +9,7 @@ namespace BLE_DotNet
     internal class CSensor
     {
         private BluetoothLEDevice __Device;
-        public CSensorService oService;
+        public CSensorService oService = null;
 
         public CSensor(BluetoothLEDevice p_oDevice) 
         { 
@@ -45,9 +45,13 @@ namespace BLE_DotNet
                 foreach (var service in services)
                 {
                     if(service.Uuid.ToString().Contains(p_sServiceUUID)) 
-                    { 
-                        oService = new CSensorService(service);
-                        await oService.SubscribeToCharNotifications(p_lsCharacteristicsUUIDs);
+                    {
+                        if (oService == null)
+                        {
+                            oService = new CSensorService(service);
+                            await oService.SubscribeToCharNotifications(p_lsCharacteristicsUUIDs);
+                            break;
+                        }
                     }
                 }
             }

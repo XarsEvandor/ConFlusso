@@ -48,6 +48,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CClientThread.cs" />
     <Compile Include="CSensor.cs" />
     <Compile Include="CSensorCharacteristic.cs" />
     <Compile Include="CSensorService.cs" />
