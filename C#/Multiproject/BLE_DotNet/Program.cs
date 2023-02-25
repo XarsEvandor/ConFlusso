@@ -75,9 +75,9 @@ namespace BLE_DotNet
                         {
                             do
                             {
-                                valuesX = oSensor.oService.dCharacteristicsUUIDs["2101"].tempValues;
-                                valuesY = oSensor.oService.dCharacteristicsUUIDs["2102"].tempValues;
-                                valuesZ = oSensor.oService.dCharacteristicsUUIDs["2103"].tempValues;
+                                valuesX = oSensor.oService.dCharacteristicsUUIDs["2101"].ValuesX;
+                                valuesY = oSensor.oService.dCharacteristicsUUIDs["2102"].ValuesY;
+                                valuesZ = oSensor.oService.dCharacteristicsUUIDs["2103"].ValuesZ;
 
                                 for (int i = 0; i < valuesX.Count; i++)
                                 {
@@ -128,14 +128,17 @@ namespace BLE_DotNet
             if (Regex.IsMatch(args.Name, "Arduino\\s+Accelerome", RegexOptions.IgnoreCase))
             {
                 
-                oDeviceInfo = args;
+                //oDeviceInfo = args;
                 
-                //if (Client == null)
-                //{
-                //  Console.WriteLine("Arduino found: " + args.Name.ToString());
-                //   Client = new CClientThread(args, p_sAccelUuid, p_lsCharacteristicsUUIDs);
-                //   Client.Start();
-                //}
+                if (Client == null)
+                {
+                    Console.WriteLine("Arduino found: " + args.Name.ToString());
+                    Client = new CClientThread(args, p_sAccelUuid, p_lsCharacteristicsUUIDs);
+                    Client.Start();
+
+                    sender.Added -= DeviceWatcher_Added;
+                    sender.Stop();
+                }
 
             }
 

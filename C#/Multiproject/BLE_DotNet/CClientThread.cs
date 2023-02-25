@@ -75,14 +75,13 @@ namespace BLE_DotNet
                 {
                     do
                     {
-                        valuesX = Sensor.oService.dCharacteristicsUUIDs["2101"].tempValues;
-                        valuesY = Sensor.oService.dCharacteristicsUUIDs["2102"].tempValues;
-                        valuesZ = Sensor.oService.dCharacteristicsUUIDs["2103"].tempValues;
+                        valuesX = Sensor.oService.dCharacteristicsUUIDs["2101"].ValuesX;
+                        valuesY = Sensor.oService.dCharacteristicsUUIDs["2102"].ValuesY;
+                        valuesZ = Sensor.oService.dCharacteristicsUUIDs["2103"].ValuesZ;
 
                         for (int i = 0; i < valuesX.Count; i++)
                         {
                             Debug.WriteLine($"Accel X: {valuesX[i]} | Accel Y: {valuesY[i]} | Accel Z: {valuesZ[i]}\n");
-                            Thread.Sleep(100);
                         }
                     }
                     while (valuesX.Count < 400);
