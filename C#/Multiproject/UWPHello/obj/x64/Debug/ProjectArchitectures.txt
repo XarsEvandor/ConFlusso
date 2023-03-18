@@ -1,1 +1,0 @@
-C:\Users\giorg\Desktop\Programing\Thesis\Development\ConFlusso\C#\Multiproject\UWPHello\UWPHello.csproj;x64
