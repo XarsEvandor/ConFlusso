@@ -1,0 +1,10 @@
+{
+    "cSpell.words": [
+        "dataframe",
+        "figsize",
+        "mido"
+    ],
+    "python.analysis.extraPaths": [
+        "./MIDI"
+    ]
+}

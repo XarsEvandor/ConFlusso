@@ -1,0 +1,74 @@
+import rtmidi
+import threading
+import time
+
+class MidiManager:
+    def __init__(self):
+        self.midiout = rtmidi.MidiOut()
+        available_ports = self.midiout.get_ports()
+        if available_ports:
+            self.midiout.open_port(0)
+        else:
+            print("No MIDI port found")
+
+        self.is_playing = False
+        self.set_duration = True
+        self.lock = threading.Lock()
+
+        self.running = True
+        self.thread = threading.Thread(target=self._run)
+        self.thread.start()
+
+    def _run(self):
+        while self.running:
+            with self.lock:
+                if self.is_playing and self.set_duration:
+                    note, velocity, duration = self.note_data
+                    self.send_note_on(note, velocity)
+                    time.sleep(duration)
+                    self.send_note_off(note)
+                    self.is_playing = False  # Note has finished playing
+                else:
+                    time.sleep(0.01)  # No tight loops, sleep for a brief moment
+
+    def play_note(self, note, velocity=100, duration=0.5, set_duration=True):
+        with self.lock:
+            if not self.is_playing:
+                self.is_playing = True
+                self.set_duration = set_duration
+                self.note_data = (note, velocity, duration)
+                if not set_duration:  # If the note is to be sustained indefinitely
+                    self.send_note_on(note, velocity)
+
+    def stop_note(self):
+        with self.lock:
+            if self.is_playing and not self.set_duration:
+                note, _, _ = self.note_data
+                self.send_note_off(note)
+                self.is_playing = False  # Reset the state
+
+    def send_note_on(self, note, velocity):
+        note_on = [0x90, note, velocity]
+        self.midiout.send_message(note_on)
+
+    def send_note_off(self, note):
+        note_off = [0x80, note, 0]
+        self.midiout.send_message(note_off)
+
+    def close(self):
+        self.running = False
+        self.thread.join()
+        self.midiout.close_port()
+
+if __name__ == "__main__":
+    mm = MidiManager()
+    
+    mm.play_note(60, 112, set_duration=True)  # Play middle C for a specific duration
+    time.sleep(1)
+    mm.play_note(69, 112, set_duration=False)  # Sustain E indefinitely
+    time.sleep(3)
+    mm.stop_note()  # Stop the indefinitely sustained note
+    mm.play_note(60, 112, 2, set_duration=True)  # Play middle C for the default duration
+    time.sleep(2.2)
+    
+    mm.close()

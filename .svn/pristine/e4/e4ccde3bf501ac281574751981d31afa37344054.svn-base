@@ -1,0 +1,123 @@
+{
+  "version": 2,
+  "dgSpecHash": "gGERTn0abE5vTyWNLL6Z1Eo8mpWh5mVBAt02WVUsEsveG2d3NGnAN5972clzvzZN2Hva5i37zsa84Dc1hncdfg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\giorg\\Desktop\\Programing\\Thesis\\Development\\ConFlusso\\Examples\\SignalRServer\\SignalRServer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.aspnet.signalr.core\\2.4.3\\microsoft.aspnet.signalr.core.2.4.3.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.aspnet.signalr.selfhost\\2.4.3\\microsoft.aspnet.signalr.selfhost.2.4.3.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\3.1.16\\microsoft.aspnetcore.connections.abstractions.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.aspnetcore.http.connections.client\\3.1.16\\microsoft.aspnetcore.http.connections.client.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.aspnetcore.http.connections.common\\3.1.16\\microsoft.aspnetcore.http.connections.common.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.16\\microsoft.aspnetcore.http.features.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.aspnetcore.signalr.client\\3.1.16\\microsoft.aspnetcore.signalr.client.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.aspnetcore.signalr.client.core\\3.1.16\\microsoft.aspnetcore.signalr.client.core.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.aspnetcore.signalr.common\\3.1.16\\microsoft.aspnetcore.signalr.common.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.aspnetcore.signalr.protocols.json\\3.1.16\\microsoft.aspnetcore.signalr.protocols.json.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.16\\microsoft.extensions.configuration.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.16\\microsoft.extensions.configuration.abstractions.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.16\\microsoft.extensions.configuration.binder.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.16\\microsoft.extensions.dependencyinjection.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.16\\microsoft.extensions.dependencyinjection.abstractions.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.extensions.logging\\3.1.16\\microsoft.extensions.logging.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.16\\microsoft.extensions.logging.abstractions.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.extensions.options\\3.1.16\\microsoft.extensions.options.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.16\\microsoft.extensions.primitives.3.1.16.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.owin\\2.1.0\\microsoft.owin.2.1.0.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.owin.diagnostics\\2.1.0\\microsoft.owin.diagnostics.2.1.0.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.owin.host.httplistener\\2.1.0\\microsoft.owin.host.httplistener.2.1.0.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.owin.hosting\\2.1.0\\microsoft.owin.hosting.2.1.0.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.owin.security\\2.1.0\\microsoft.owin.security.2.1.0.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.owin.selfhost\\2.1.0\\microsoft.owin.selfhost.2.1.0.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\newtonsoft.json\\6.0.4\\newtonsoft.json.6.0.4.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\owin\\1.0.0\\owin.1.0.0.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\system.io.pipelines\\4.7.4\\system.io.pipelines.4.7.4.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\giorg\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.SignalR.Core 2.4.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.SignalR.Core",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin.Diagnostics 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin.Diagnostics",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin.Host.HttpListener 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin.Host.HttpListener",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin.Hosting 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin.Hosting",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin.Security 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin.Security",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Newtonsoft.Json 6.0.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Owin 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
+}
