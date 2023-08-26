@@ -182,12 +182,12 @@ class  CControlUnitBase:
     def ModifyTrack8(self):
         pass
     
-    def modifyTrack9(self):
+    def ModifyTrack9(self):
         pass
     
-    def modifyTrack10(self):
+    def ModifyTrack10(self):
         pass
     
-    def modifyTrack11(self):
+    def ModifyTrack11(self):
         pass
     
