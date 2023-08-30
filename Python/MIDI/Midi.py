@@ -8,22 +8,33 @@ from rtmidi.midiconstants import (
 )
 
 class CMidi:
+    _instance = None  # Class level attribute to hold the singleton instance
+    _initialized = False
+
+    def __new__(cls, *args, **kwargs):
+        # If an instance already exists, return that instance
+        if not cls._instance:
+            cls._instance = super(CMidi, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
+    
     def __init__(self):
-        self.midiout = rtmidi.MidiOut()
-        available_ports = self.midiout.get_ports()
-        if available_ports:
-            self.midiout.open_port(0)
-        else:
-            print("No MIDI port found")
+        if not self._initialized:
+            self.midiout = rtmidi.MidiOut()
+            available_ports = self.midiout.get_ports()
+            if available_ports:
+                self.midiout.open_port(0)
+            else:
+                print("No MIDI port found")
 
-        self.is_playing = False
-        self.to_play = False
-        self.lock = threading.Lock()
-        self.note_data = None
+            self.is_playing = False
+            self.to_play = False
+            self.lock = threading.Lock()
+            self.note_data = None
 
-        self.running = True
-        self.thread = threading.Thread(target=self._run)
-        self.thread.start()
+            self.running = True
+            self.thread = threading.Thread(target=self._run)
+            self.thread.start()
+            CMidi._initialized = True
 
     def _run(self):
         while self.running:

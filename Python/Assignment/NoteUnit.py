@@ -5,7 +5,7 @@ class CNoteUnit:
         self.control = control
         self.midi = CMidi()
         
-    def create_chord(root_note, chord_type="major"):
+    def create_chord(self, root_note, chord_type="major"):
         
         CHORD_PATTERNS = {
             "major": [0, 4, 7],          # Root, Major 3rd, Perfect 5th
@@ -28,24 +28,25 @@ class CNoteUnit:
         
         
     def note_to_scale_key(self, scale :str = "Major" , note = "C") -> int:
-        scale_notes = self.scales.get(scale)
+        scale_notes = self.control._scales.get(scale)
         if not scale_notes:
             print(f"Scale {scale} not recognized. Defaulting to C Major.")
-            scale_notes = self.control.scales[scale]
+            scale_notes = self.control._scales[scale]
 
-        self.key = [scale_notes.get(note, 60)]  # Default to C4 if note is not recognized
+        return [scale_notes.get(note, 60)]  # Default to C4 if note is not recognized
         
         
     def playNote(self):
-        key = self.note_to_scale_key(self.control.scale, self.control.note)
-        key = key + (self.control.octave * 12)
-        if self.control.chord_mode:
-            key = self.create_chord(key[0], self.control.chord_type)
-        self.midi.change_instrument(self.control.instrument, self.control.channel)
-        self.midi.play_note(key, self.control.velocity, self.control.channel)
+        key = self.note_to_scale_key(self.control._scale, self.control._note)
+        key[0] = key[0] + (self.control._octave * 12)
+        if self.control._chord_mode:
+            key = self.create_chord(key[0], self.control._chord_type)
+        self.midi.change_instrument(self.control._instrument, self.control._channel)
+        self.midi.play_note(key, self.control._velocity, self.control._channel)
         
+    def stop_note(self):
+        self.midi.stop_note()
         
-        
-        
-        
+    def close_MIDI(self):
+        self.midi.close()
         

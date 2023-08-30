@@ -1,6 +1,5 @@
-from time import sleep
-from . import CControlUnitBase
-from . import CControlUnitClassic
+from Assignment.ControlUnit import CControlUnitBase
+from Assignment.ControlUnitAlts import CControlUnitClassic
 
 import sys
 print(sys.path)
@@ -62,6 +61,10 @@ class CGestureAssigner:
     def perform_right_hand_counter_clockwise_rotation(self):
         pass
     
+    def perform_right_hand_centered(self):
+        self._controlUnit.StopNote()
+        
+    
     
     # ======= Left Hand =========
     
@@ -103,6 +106,9 @@ class CGestureAssigner:
         index = (self._controlUnitType + 1) % len(self._controlUnitTypes)
         self._controlUnitType = index
         self._controlUnit = self._controlUnitTypes[index](self._controlUnit)
+        
+    def perform_left_hand_closing_lid(self):
+        self._controlUnit.CloseMIDI()
         
     
             

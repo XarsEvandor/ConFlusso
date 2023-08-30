@@ -1,4 +1,4 @@
-from . import CControlUnitBase
+from Assignment.ControlUnit import CControlUnitBase
    
 class CControlUnitClassic(CControlUnitBase):
     def __init__(self, p_oPreviousControlUnit) -> None:

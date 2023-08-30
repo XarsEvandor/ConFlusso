@@ -1,4 +1,4 @@
-from . import NoteUnit
+from Assignment.NoteUnit import CNoteUnit
 
 class  CControlUnitBase:
     def __init__(self, p_oPreviousControlUnit) -> None:
@@ -117,43 +117,53 @@ class  CControlUnitBase:
         
     def PlayNote1(self):    
         self._note = "A"
-        noteUnit = NoteUnit(self)
+        noteUnit = CNoteUnit(self)
         noteUnit.playNote()
         
     def PlayNote2(self):
         self._note = "B"
-        noteUnit = NoteUnit(self)
+        noteUnit = CNoteUnit(self)
         noteUnit.playNote()
         
     def PlayNote3(self):
         self._note = "C"
-        noteUnit = NoteUnit(self)
+        noteUnit = CNoteUnit(self)
         noteUnit.playNote()
     
     def PlayNote4(self):
         self._note = "D"
-        noteUnit = NoteUnit(self)
+        noteUnit = CNoteUnit(self)
         noteUnit.playNote()
         
     def PlayNote5(self):
         self._note = "E"
-        noteUnit = NoteUnit(self)
+        noteUnit = CNoteUnit(self)
         noteUnit.playNote()
         
     def PlayNote6(self):
         self._note = "F"
-        noteUnit = NoteUnit(self)
+        noteUnit = CNoteUnit(self)
         noteUnit.playNote()
         
     def PlayNote7(self):
         self._note = "G"
-        noteUnit = NoteUnit(self)
+        noteUnit = CNoteUnit(self)
         noteUnit.playNote()
         
     def PlayNote8(self):
         self._note = "high"
-        noteUnit = NoteUnit(self)
+        noteUnit = CNoteUnit(self)
         noteUnit.playNote()
+        
+        
+    def StopNote(self):
+        noteUnit = CNoteUnit(self)
+        noteUnit.stop_note()
+        
+        
+    def CloseMIDI(self):
+        noteUnit = CNoteUnit(self)
+        noteUnit.close_MIDI()
         
         
 
