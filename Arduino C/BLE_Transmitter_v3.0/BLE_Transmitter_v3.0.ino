@@ -15,6 +15,7 @@ float l, m, n;
 
 int nTicks = 0;
 bool bIsReady = false;
+bool bIsDebug = false;
 
 uint8_t accelData[16]; 
 
@@ -121,7 +122,7 @@ void loop() {
         // Update characteristic values
         customAccelArr.writeValue(accelData, 16);  
 
-      if (nTicks % 5 == 0)
+      if ((nTicks % 1 == 0) && (bIsDebug))
       {
         // Print sensor data to serial monitor
         Serial.print("Acceleration: X = ");
@@ -149,6 +150,19 @@ void loop() {
   Serial.print("Disconnected from central.: ");
   Serial.println(central.address());
 
+}
+
+
+// Dummy data for transmittion time estimation
+void read_Accel_(){
+  
+    accelX = (int16_t)(1 * 1000);
+    accelY = (int16_t)(1 * 1000);
+    accelZ = (int16_t)(1 * 1000);
+
+    gyroX = (int16_t)(1);
+    gyroY = (int16_t)(1);
+    gyroZ = (int16_t)(1);      
 }
 
 void read_Accel(){
