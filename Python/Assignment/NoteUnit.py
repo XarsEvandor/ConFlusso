@@ -47,7 +47,10 @@ class CNoteUnit:
 
     def stop_note(self):
         self.midi.stop_note()
+    
+    def loop_midi(self):
+        self.midi.loop_midi()
 
     def close_MIDI(self):
         self.midi.close()
-        self.midi.save_midi_file("output.mid")
+        self.midi.save_midi_file("seed.mid")

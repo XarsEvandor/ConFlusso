@@ -1,0 +1,12 @@
+{
+    "full_mobility":[
+        {
+            "roll_threshold_up": 5,
+            "roll_threshold_down": -5,
+            "heading_threshold_left": -20,
+            "heading_threshold_right": 20,
+            "pitch_threshold_clockwise": 15,
+            "pitch_threshold_counterclockwise": -15
+        }
+    ]
+}

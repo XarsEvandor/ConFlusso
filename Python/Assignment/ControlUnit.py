@@ -8,7 +8,7 @@ class CControlUnitBase:
         self._channel = 0
         self._velocity = 100
 
-        self._allowed_instruments = [0, 33, 41, 25]
+        self._allowed_instruments = [0, 33, 41, 43]
         self._instrument = self._allowed_instruments[0]
 
         self._chord_mode = False
@@ -67,12 +67,16 @@ class CControlUnitBase:
         self._chord_type = self._allowed_chord_types[index]
 
     def _cycle_scales_forward(self):
-        index = (self.scales.index(self._scale) + 1) % len(self.scales)
-        self._scale = self.scales[index]
+        scale_keys = list(self._scales.keys())
+        current_index = scale_keys.index(self._scale)
+        next_index = (current_index + 1) % len(scale_keys)
+        self._scale = scale_keys[next_index]
 
     def _cycle_scales_backward(self):
-        index = (self.scales.index(self._scale) - 1) % len(self.scales)
-        self._scale = self.scales[index]
+        scale_keys = list(self._scales.keys())
+        current_index = scale_keys.index(self._scale)
+        previous_index = (current_index - 1) % len(scale_keys)
+        self._scale = scale_keys[previous_index]
 
     def _octave_up(self):
         self._octave += 1
@@ -83,76 +87,72 @@ class CControlUnitBase:
     def _octave_reset(self):
         self._octave = 0
 
+    def _cycle_channel_forward(self):
+        index = (self._channel + 1) % 4
+        self._channel = index
+
+    def _cycle_channel_backward(self):
+        index = (self._channel - 1) % 4
+        self._channel = index
+        
     def _cycle_instrument_forward(self):
         index = (self._allowed_instruments.index(
             self._instrument) + 1) % len(self._allowed_instruments)
         self._instrument = self._allowed_instruments[index]
+        self._cycle_channel_forward()
 
     def _cycle_instrument_backward(self):
         index = (self._allowed_instruments.index(
             self._instrument) - 1) % len(self._allowed_instruments)
         self._instrument = self._allowed_instruments[index]
-
-    def _cycle_channel_forward(self):
-        index = (self._channel + 1) % 16
-        self._channel = index
-
-        # Channel 9 is reserved for percussion
-        if self._channel == 9:
-            self._channel += 1
-
-        # TODO: MIDI file is being scored while playing. When the channel changes, the file is closed, copied, and reopened.
-        # The copy of the midi file is then played on a separate thread. If a file is already playing, it should be closed and deleted.
-
-    def _cycle_channel_backward(self):
-        index = (self._channel - 1) % 16
-        self._channel = index
-
-        # Channel 9 is reserved for percussion
-        if self._channel == 9:
-            self._channel -= 1
+        self._cycle_channel_backward()
 
     def _play_percussion(self):
         self._channel = 9
         ...
 
+    def _get_note_by_position(self, position):
+        current_scale = self._scales[self._scale]
+        notes = list(current_scale.keys())
+        return notes[position]
+
     def PlayNote1(self):
-        self._note = "A"
+        self._note = self._get_note_by_position(0)  # First note in scale
         noteUnit = CNoteUnit(self)
         noteUnit.playNote()
 
     def PlayNote2(self):
-        self._note = "B"
+        self._note = self._get_note_by_position(1)  # Second note in scale
         noteUnit = CNoteUnit(self)
         noteUnit.playNote()
 
     def PlayNote3(self):
-        self._note = "C"
+        self._note = self._get_note_by_position(2)  # Third note in scale
         noteUnit = CNoteUnit(self)
         noteUnit.playNote()
 
     def PlayNote4(self):
-        self._note = "D"
+        self._note = self._get_note_by_position(3)  # Fourth note in scale
         noteUnit = CNoteUnit(self)
         noteUnit.playNote()
 
     def PlayNote5(self):
-        self._note = "E"
+        self._note = self._get_note_by_position(4)  # Fifth note in scale
         noteUnit = CNoteUnit(self)
         noteUnit.playNote()
 
     def PlayNote6(self):
-        self._note = "F"
+        self._note = self._get_note_by_position(5)  # Sixth note in scale
         noteUnit = CNoteUnit(self)
         noteUnit.playNote()
 
     def PlayNote7(self):
-        self._note = "G"
+        self._note = self._get_note_by_position(6)  # Seventh note in scale
         noteUnit = CNoteUnit(self)
         noteUnit.playNote()
 
     def PlayNote8(self):
-        self._note = "high"
+        self._note = self._get_note_by_position(7)  # Eighth note in scale
         noteUnit = CNoteUnit(self)
         noteUnit.playNote()
 

@@ -7,6 +7,7 @@ class Characteristic:
         self.characteristicUUID = characteristicUUID
         self.client = client
         self.data = defaultdict(list)
+        self.IsDebug = False
         
     async def start_notify(self):
         await self.client.start_notify(self.characteristicUUID, self.callback)
@@ -16,33 +17,18 @@ class Characteristic:
     
     # Callback function for when a notification is received. 
     def callback(self, sender: int, data: bytearray):
-        accelX = int.from_bytes(data[0:2], byteorder='little', signed=True)
-        accelY = int.from_bytes(data[2:4], byteorder='little', signed=True)
-        accelZ = int.from_bytes(data[4:6], byteorder='little', signed=True)
-
-        gyroX = int.from_bytes(data[6:8], byteorder='little', signed=True)
-        gyroY = int.from_bytes(data[8:10], byteorder='little', signed=True)
-        gyroZ = int.from_bytes(data[10:12], byteorder='little', signed=True)
-
+        heading = int.from_bytes(data[0:2], byteorder='little', signed=True)
+        pitch = int.from_bytes(data[2:4], byteorder='little', signed=True)
+        roll = int.from_bytes(data[4:6], byteorder='little', signed=True)
         timestamp = int.from_bytes(data[12:], byteorder='little', signed=False)
-        
-        accelX = (accelX // 5) * 5
-        accelY = (accelY // 5) * 5
-        accelZ = (accelZ // 5) * 5
-        
-        gyroX = (gyroX // 2) * 2
-        gyroY = (gyroY // 2) * 2
-        gyroZ = (gyroZ // 2) * 2
 
-        
-        print(f"Time: {timestamp} ms, Accel: ({accelX}, {accelY}, {accelZ}), Gyro: ({gyroX}, {gyroY}, {gyroZ})")
-        
-        self.data['accelX'].append((timestamp, accelX))
-        self.data['accelY'].append((timestamp, accelY))
-        self.data['accelZ'].append((timestamp, accelZ))
-        self.data['gyroX'].append((timestamp, gyroX))
-        self.data['gyroY'].append((timestamp, gyroY))
-        self.data['gyroZ'].append((timestamp, gyroZ))
+        if self.IsDebug:
+            print(f"Time: {timestamp} ms, Orientation: Heading={heading}, Pitch={pitch}, Roll={roll}")
+
+        # self.data['time'].append(timestamp)
+        self.data['heading'].append((timestamp, heading))
+        self.data['pitch'].append((timestamp, pitch))
+        self.data['roll'].append((timestamp, roll))
         
     def getDataFrame(self):
         return pd.DataFrame.from_dict(self.data)

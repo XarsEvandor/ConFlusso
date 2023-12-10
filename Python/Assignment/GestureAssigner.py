@@ -100,10 +100,11 @@ class CGestureAssigner:
         self._controlUnit.ModifyTrack11()
 
     def perform_left_hand_counter_clockwise_rotation(self):
+        self._controlUnit.CloseMIDI()
+        
+
+    def perform_left_hand_closing_lid(self):
         # Switch control unit type
         index = (self._controlUnitType + 1) % len(self._controlUnitTypes)
         self._controlUnitType = index
         self._controlUnit = self._controlUnitTypes[index](self._controlUnit)
-
-    def perform_left_hand_closing_lid(self):
-        self._controlUnit.CloseMIDI()

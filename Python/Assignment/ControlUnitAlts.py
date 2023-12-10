@@ -32,11 +32,11 @@ class CControlUnitClassic(CControlUnitBase):
         
     def ModifyTrack7(self):
         self._cycle_instrument_forward()
-        print("Current instrument: " + self._instrument)
+        print("Current instrument: " + str(self._instrument))
         
     def ModifyTrack8(self):
         self._cycle_instrument_backward()
-        print("Current instrument: " + self._instrument)
+        print("Current instrument: " + str(self._instrument))
         
     def ModifyTrack9(self):
         self._cycle_scales_forward()

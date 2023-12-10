@@ -1,6 +1,7 @@
+import datetime
 import rtmidi
 import threading
-from .CScorer import CScorer
+from .CScorer import CScorer 
 
 import time
 from rtmidi.midiconstants import (
@@ -22,9 +23,12 @@ class CMidi:
     def __init__(self):
         if not self._initialized:
             self.start_time = time.time()
+            self.time_millis = None
             self.midiout = rtmidi.MidiOut()
             available_ports = self.midiout.get_ports()
             if available_ports:
+                for port in available_ports:
+                    print("Available port: " + port)
                 self.midiout.open_port(0)
             else:
                 print("No MIDI port found")
@@ -65,8 +69,10 @@ class CMidi:
                     channel = 0
                 self.note_data = (notes, velocity, channel)
                 elapsed_time = self._get_elapsed_time()
+                self.time_millis = datetime.datetime.now().microsecond
+
                 for note in notes:
-                    self.scorer.log_note(note, elapsed_time)
+                    self.scorer.log_note(note, elapsed_time, channel=channel)
 
     def stop_note(self):
         with self.lock:
@@ -75,7 +81,7 @@ class CMidi:
                 elapsed_time = self._get_elapsed_time()
                 for note in notes:
                     self.send_note_off(note, channel)
-                    self.scorer.log_note_off(note, elapsed_time)
+                    self.scorer.log_note_off(note, elapsed_time, channel=channel)
                 self.is_playing = False
                 self.note_data = None
 
@@ -91,6 +97,8 @@ class CMidi:
         if 0 <= instrument <= 127 and 0 <= channel <= 15:
             program_change = [PROGRAM_CHANGE + channel, instrument]
             self.midiout.send_message(program_change)
+            elapsed_time = self._get_elapsed_time()
+            self.scorer.log_program_change(channel, instrument, elapsed_time)
         else:
             print("Invalid instrument or channel number")
 
@@ -101,6 +109,9 @@ class CMidi:
 
     def save_midi_file(self, filename):
         self.scorer.save_midi(filename)
+        
+    # def loop_midi(self):
+    #     self.playback.start_playback()
 
 
 if __name__ == "__main__":
