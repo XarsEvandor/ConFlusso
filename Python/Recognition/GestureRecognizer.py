@@ -7,8 +7,8 @@ class GestureRecognizer:
         self.mode = mode
         self.thresholds = self.load_thresholds(json_file)
         self.window_size = window_size
+        self.current_state = "Centered"
         self.last_gesture = None
-        self.current_state = "Gesture"
 
     def load_thresholds(self, json_file):
         with open(json_file, 'r') as file:
@@ -29,7 +29,7 @@ class GestureRecognizer:
 
     def detect_gesture(self, data_samples):
         if len(data_samples) < self.window_size:
-            return "Centered"  # Default to "Centered" if not enough samples
+            return "Centered", None  # Default to "Centered" if not enough samples
 
         # Convert to DataFrame
         df = pd.DataFrame(data_samples)
@@ -54,42 +54,26 @@ class GestureRecognizer:
         elif pitch_delta <= self.thresholds['pitch_threshold_counterclockwise']:
             new_gesture = 'counter_clockwise'
 
-        # Gesture detection logic
-        # gesture_detected = "Centered"
-        # if self.last_gesture == "Centered" and new_gesture is not None:
-        #     gesture_detected = new_gesture
-        #     self.last_gesture = new_gesture
-        # elif self.last_gesture != "Centered":
-        #     if self.opposite_gesture(self.last_gesture) == new_gesture:
-        #         self.last_gesture = "Centered"
-        #     else:
-        #         gesture_detected = self.last_gesture
-                
-        # State management
-        if self.current_state == "Gesture":
-            if new_gesture == self.opposite_gesture(self.last_gesture):
-                self.current_state = "Transition"
-                gesture_detected = self.last_gesture
-        elif self.current_state == "Transition":
-            if new_gesture != self.last_gesture:
-                self.current_state = "Centered"
-                gesture_detected = new_gesture
-        elif self.current_state == "Centered":
+        # Gesture detection and state management
+        if self.current_state == "Centered":
             if new_gesture is not None:
-                self.current_state = "Gesture"
-                gesture_detected = new_gesture
-                
-                
-                
+                self.current_state = new_gesture
+                self.last_gesture = new_gesture
+        elif self.current_state in ["up", "down", "left", "right", "clockwise", "counter_clockwise"]:
+            if new_gesture == self.opposite_gesture(self.current_state):
+                self.current_state = "Transition"
+        elif self.current_state == "Transition":
+            if new_gesture is None:
+                self.current_state = "Centered"
+
+        # Log the last stable gesture during transition, and "Centered" when transition is complete
+        gesture_detected = self.last_gesture if self.current_state != "Centered" else "Centered"
+
         return df, {
             'Roll_Delta': roll_delta,
             'Pitch_Delta': pitch_delta,
             'Heading_Delta': heading_delta
         }, gesture_detected
-
-
-
-
 
 def process_data(input_file, output_file, json_file, log_file):
     recognizer = GestureRecognizer(json_file)
@@ -98,24 +82,22 @@ def process_data(input_file, output_file, json_file, log_file):
     log = []
 
     for i in range(len(data) - recognizer.window_size + 1):
-        # Create a window of samples
         sample = data.iloc[i:i+recognizer.window_size]
         window, deltas, gesture = recognizer.detect_gesture(sample)
         timestamp = window.iloc[-1]['Timestamp']
-        results.append({'Timestamp': timestamp, 'Gesture': gesture})
+        if gesture is not None and recognizer.current_state != "Transition":
+            results.append({'Timestamp': timestamp, 'Gesture': gesture})
         log.append({
             'Timestamp': timestamp, 
             'Roll_Delta': deltas['Roll_Delta'], 
             'Pitch_Delta': deltas['Pitch_Delta'], 
             'Heading_Delta': deltas['Heading_Delta'],
-            'Detected_Gesture': gesture,
-            # Adding actual values from the window
+            'Detected_Gesture': gesture if recognizer.current_state != "Transition" else recognizer.last_gesture,
             'Actual_Roll': window['Roll'].tolist(),
             'Actual_Pitch': window['Pitch'].tolist(),
             'Actual_Heading': window['Heading'].tolist()
         })
 
-    # Save results and log to separate CSV files
     pd.DataFrame(results).to_csv(output_file, index=False)
     pd.DataFrame(log).to_csv(log_file, index=False)
 
@@ -126,4 +108,4 @@ output_file_path = os.path.join(script_dir, "gesture_results.csv")
 json_file_path = os.path.join(script_dir, "recognition_profiles.json")
 log_file_path = os.path.join(script_dir, "gesture_log.csv")
 process_data(input_file_path, output_file_path, json_file_path, log_file_path)
-
+ 

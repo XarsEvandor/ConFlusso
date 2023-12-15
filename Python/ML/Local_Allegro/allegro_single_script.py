@@ -383,11 +383,15 @@ def process_seed_midi(seed_midi_config, midi_file):
 
         plt.figure(figsize=(14, 5))
         ax = plt.axes(title=fname)
-        ax.set_facecolor('black')
+        ax.set_facecolor('black') 
 
         plt.scatter(x, y, c=c)
         plt.xlabel("Time")
         plt.ylabel("Pitch")
+        
+        plot_filename = os.path.join(BASE_DIR, '../../results', 'seed_plot.png')
+        plt.savefig(plot_filename)
+        
         plt.show()
 
     else:
@@ -581,6 +585,10 @@ def perform_inpainting(inpainting_config, model, melody_chords_f, ctx):
         plt.scatter(x, y, c=c)
         plt.xlabel("Time")
         plt.ylabel("Pitch")
+        
+        plot_filename = os.path.join(BASE_DIR, '../../results', 'composition_plot.png')
+        plt.savefig(plot_filename)
+
         plt.show()
 
 
@@ -590,6 +598,8 @@ if __name__ == "__main__":
 
     # Set up the model
     model, ctx = setup_model(config['model'])
+    
+    model_stats(config['model'], model)
 
     # Process the seed MIDI
     # Replace this with your custom MIDI file path
