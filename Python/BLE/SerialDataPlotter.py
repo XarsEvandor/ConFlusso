@@ -5,10 +5,6 @@ import matplotlib.pyplot as plt
 file_path = 'serial_data.csv'  # Update this with the correct path
 data = pd.read_csv(file_path)
 
-# Assuming the CSV has columns named 'Timestamp', 'Heading', 'Pitch', 'Roll'
-# Convert 'Timestamp' to a datetime object if it's not already
-data['Timestamp'] = pd.to_datetime(data['Timestamp'])
-
 # Plotting
 plt.figure(figsize=(10, 6))
 
