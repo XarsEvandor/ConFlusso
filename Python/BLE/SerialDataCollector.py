@@ -9,6 +9,5 @@ with open("serial_data.csv", "w") as file:
     while True:
         if ser.in_waiting > 0:
             line = ser.readline().decode('utf-8').rstrip()
-            timestamp = datetime.datetime.now().microsecond
-            file.write(f"{timestamp},{line}\n")
-            print(f"{timestamp},{line}")  # Optional: to see the output in the console
+            file.write(f"{line}\n")
+            print(f"{line}")  # Optional: to see the output in the console
